@@ -17,5 +17,72 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
+  <property>
+    <name>dfs.replication</name>
+    <value>1</value>
+  </property>
+  <property>
+    <name>dfs.name.dir</name>
+    <value>file:///home/lofelix/hadoop-3.3.5/hadoopdata/hdfs/namenode</value>
+  </property>
+  <property>
+    <name>dfs.data.dir</name>
+    <value>file:///home/lofelix/hadoop-3.3.5/hadoopdata/hdfs/datanode</value>
+  </property>
+  <property>
+     <name>ipc.maximum.data.length</name>
+     <value>134217728</value>
+  </property>
+
+  <property>
+    <name>fs.s3a.aws.credentials.provider</name>
+    <value>org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider</value>
+  </property>
+
+  <property>
+    <name>fs.s3a.impl</name>
+    <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+  </property>
+
+  <property>
+    <name>fs.s3a.endpoint</name>
+    <value/>
+  </property>
+
+  <property>
+    <name>fs.s3a.access.key</name>
+    <value/>
+  </property>
+
+  <property>
+    <name>fs.s3a.secret.key</name>
+    <value/>
+  </property>
+
+  <property>
+    <name>fs.s3a.awsAccessKeyId</name>
+    <value/>
+  </property>
+
+  <property>
+    <name>fs.s3a.awsSecretAccessKey</name>
+    <value/>
+  </property>
+
+  <property>
+    <name>fs.s3a.connection.ssl.enabled</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>fs.s3a.path.style.access</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>org.apache.hadoop.orc.overwrite.output.file</name>
+    <value>true</value>
+  </property>
+
 
 </configuration>

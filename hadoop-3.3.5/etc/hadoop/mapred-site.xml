@@ -17,5 +17,14 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
+  <property>
+    <name>mapreduce.framework.name</name>
+    <value>yarn</value>
+  </property>
+  
+  <property>
+    <name>fs.s3a.impl</name>
+    <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+  </property>
 
 </configuration>

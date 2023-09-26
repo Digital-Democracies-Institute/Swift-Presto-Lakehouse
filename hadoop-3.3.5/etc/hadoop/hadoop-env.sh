@@ -52,6 +52,7 @@
 # The java implementation to use. By default, this environment
 # variable is REQUIRED on ALL platforms except OS X!
 # export JAVA_HOME=
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 # Location of Hadoop.  By default, Hadoop will attempt to determine
 # this location based upon its execution path.
@@ -124,6 +125,8 @@ export HADOOP_OS_TYPE=${HADOOP_OS_TYPE:-$(uname -s)}
 # This variable should ideally only be used as a short-cut,
 # interactive way for temporary additions on the command line.
 # export HADOOP_CLASSPATH="/some/cool/path/on/your/machine"
+
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$HADOOP_HOME/share/hadoop/tools/lib/hadoop-aws-3.3.5.jar:$HADOOP_HOME/share/hadoop/tools/lib/aws-java-sdk-bundle-1.12.316.jar
 
 # Should HADOOP_CLASSPATH be first in the official CLASSPATH?
 # export HADOOP_USER_CLASSPATH_FIRST="yes"
