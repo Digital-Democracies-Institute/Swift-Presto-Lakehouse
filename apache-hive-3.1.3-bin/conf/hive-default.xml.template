@@ -18,6 +18,67 @@
   <!-- WARNING!!! This file is auto generated for documentation purposes ONLY! -->
   <!-- WARNING!!! Any changes you make to this file will be ignored by Hive.   -->
   <!-- WARNING!!! You must make your changes in hive-site.xml instead.         -->
+
+
+  <property>
+    <name>system:java.io.tmpdir</name>
+    <value>/tmp/hive/java</value>
+  </property>
+  <property>
+    <name>system:user.name</name>
+    <value>${user.name}</value>
+  </property>
+	
+  <!-- S3 Paramters -->
+  <property>
+    <name>hive.mapred.supports.subdirectories</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>mapred.input.dir.recursive</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>metastore.storage.schema.reader.impl</name>
+    <value>org.apache.hadoop.hive.metastore.SerDeStorageSchemaReader</value>
+  </property>
+
+  <property>
+    <name>fs.s3a.impl</name>
+    <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+  </property>
+  <property>
+    <name>fs.s3a.connection.ssl.enabled</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>fs.s3a.path.style.access</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>fs.s3a.endpoint</name>
+    <value>object-arbutus.cloud.computecanada.ca</value>
+  </property>
+  <property>
+    <name>fs.s3a.access.key</name>
+    <value/>
+  </property>
+  <property>
+    <name>fs.s3a.secret.key</name>
+    <value/>
+  </property>
+  <property>
+    <name>fs.s3a.awsAccessKeyId</name>
+    <value/>
+  </property>
+  <property>
+    <name>fs.s3a.awsSecretAccessKey</name>
+    <value/>
+  </property>
+
+
   <!-- Hive Execution Parameters -->
   <property>
     <name>hive.exec.script.wrapper</name>
@@ -3212,7 +3273,7 @@
     <name>hive.txn.xlock.iow</name>
     <value>true</value>
     <description>
-      Ensures commands with OVERWRITE (such as INSERT OVERWRITE) acquire Exclusive locks for&#8;transactional tables.  This ensures that inserts (w/o overwrite) running concurrently
+      Ensures commands with OVERWRITE (such as INSERT OVERWRITE) acquire Exclusive locks for transactional tables.  This ensures that inserts (w/o overwrite) running concurrently
       are not hidden by the INSERT OVERWRITE.
     </description>
   </property>
