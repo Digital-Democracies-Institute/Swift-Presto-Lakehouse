@@ -9,14 +9,18 @@ To set up Presto with hive S3,
 
 You need to install and configure s3cmd to retrieve large library files in hadoop-3.3.5 that github would not host.
 
-## 2) Retrieve large library files for hadoop-3.3.5 from our S3 server.
+## 2) Retrieve large library files for hadoop-3.3.5 and for presto.
 
-Run the following command
+Run the following commands
 
 ```
 s3cmd get s3://ddi-git-large-files/hadoop-3.3.5/share/hadoop/tools/lib/aws-java-sdk-bundle-1.12.316.jar hadoop-3.3.5/share/hadoop/tools/lib/
 
 s3cmd get s3://ddi-git-large-files/hadoop-3.3.5/lib/native/libhdfspp.a hadoop-3.3.5/lib/native/
+
+wget https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.279/presto-cli-0.279-executable.jar
+mv presto-cli-0.279-executable.jar presto
+chmod +x presto
 ```
 
 ## 3) Install mysql
