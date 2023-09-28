@@ -87,10 +87,10 @@ hive --service metastore &
 launcher start
 
 # run the presto cli
-presto --server localhost:8080 --catalog hive
+presto --server localhost:8080 --catalog hive_s3
 
 # to run the cli with the 'defaut' schema in debug mode
-presto --server localhost:8080 --catalog hive --schema default --debug
+presto --server localhost:8080 --catalog hive_s3 --schema default --debug
 ```
 
 To stop the servers
@@ -179,17 +179,17 @@ After setting up a catalog pointing to a MySQL or PostgreSQL server, you can imm
 
 #### Example SQL on the 'mysql' catalog pointing to the hive metastore database in a MySQL server
 ```
-SHOW schemas FROM mysql;
-SHOW tables FROM mysql.hcatalog;
-DESCRIBE mysql.hcatalog.sequence_table;
+SHOW schemas FROM hive_metastore_mysql;
+SHOW tables FROM hive_metastore_mysql.hcatalog;
+DESCRIBE hive_metastore_mysql.hcatalog.sequence_table;
 ```
-#### Example of select from 'mysql' catalog
+#### Example of select from 'hive_metastore_mysql' catalog
 ```
-SELECT * FROM mysql.hcatalog.sequence_table;
+SELECT * FROM hive_metastore_mysql.hcatalog.sequence_table;
 ```
 
 #### Example of joining a table between S3 and MySQL
 ```
-SELECT * FROM ddi_demo.count_posts, mysql.hcatalog.sequence_table
-WHERE CAST(ddi_demo.count_posts.value as BigInt) = mysql.hcatalog.sequence_table.next_val;
+SELECT * FROM ddi_demo.count_posts, hive_metastore_mysql.hcatalog.sequence_table
+WHERE CAST(ddi_demo.count_posts.value as BigInt) = hive_metastore_mysql.hcatalog.sequence_table.next_val;
 ```

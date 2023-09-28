@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-FILE_PRESTO_CATALOG_HIVES3=../presto-server-0.279/etc/catalog/hive-s3.properties
-FILE_PRESTO_CATALOG_MYSQL=../presto-server-0.279/etc/catalog/hive-metastore-mysql.properties
+FILE_PRESTO_CATALOG_HIVES3=../presto-server-0.279/etc/catalog/hive_s3.properties
+FILE_PRESTO_CATALOG_MYSQL=../presto-server-0.279/etc/catalog/hive_metastore_mysql.properties
 FILE_PRESTO_NODE=../presto-server-0.279/etc/node.properties
 
 # Create catalog directory if not exist
