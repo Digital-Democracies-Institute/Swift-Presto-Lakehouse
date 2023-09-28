@@ -4,11 +4,26 @@ This is a repository for data warehousing tools.
 
 To set up Presto with hive S3,
 
-## 1) Install mysql
+
+## 1) Install s3cmd
+
+You need to install and configure s3cmd to retrieve large library files in hadoop-3.3.5 that github would not host.
+
+## 2) Retrieve large library files for hadoop-3.3.5 from our S3 server.
+
+Run the following command
+
+```
+s3cmd get s3://ddi-git-large-files/hadoop-3.3.5/share/hadoop/tools/lib/aws-java-sdk-bundle-1.12.316.jar hadoop-3.3.5/share/hadoop/tools/lib/
+
+s3cmd get s3://ddi-git-large-files/hadoop-3.3.5/lib/native/libhdfspp.a hadoop-3.3.5/lib/native/
+```
+
+## 3) Install mysql
 
 You need to install MySQL for the hive metastore database. (The default is debian database but it is not as stable).
 
-## 2) Set up your environment variables
+## 4) Set up your environment variables
 
 - Add the following environment variables in ~/.bashrc
 - Replace [Path to Swift-Presto directory] with the directory where you clone the github repository.
@@ -44,7 +59,7 @@ export PRESTO_HOME=$SWIFT_PRESTO_HOME/presto-server-0.279
 export PATH=$PATH:$PRESTO_HOME/bin
 ```
 
-## 3) Configure Presto/Hive/Hadoop with sample S3 and MySQL catalogs
+## 5) Configure Presto/Hive/Hadoop with sample S3 and MySQL catalogs
 
 You will be prompt a number of questions to retrieve configuration parameters (e.g. S3 Endpoint, S3 Access Key, S3 Secret Key, etc.). This script will then modify the configuration files in presto-server-0.279, hadoop-3.3.5, and apache-hive-3.1.3-bin.
 
@@ -52,7 +67,7 @@ You will be prompt a number of questions to retrieve configuration parameters (e
 Run ./scripts/config.sh
 ```
 
-## 4) Start the servers
+## 6) Start the servers
 
 ```
 # start the Hadoop Server
@@ -84,11 +99,11 @@ launcher stop
 To stop the hive metastore service, you need to find the PID and kill the process.
 
 
-## 5) Setting up catalogs in Presto
+## 7) Setting up catalogs in Presto
 
 - You can set up different data sources my creating properties files in presto-server-0.279/etc/catalog. The directory contains a couple of sample connectors, one to S3 and one to mysql. For how to set up different connectors, refer to https://prestodb.io/docs/current/connector.html.
 
-## 6) Example of S3 Usage
+## 8) Example of S3 Usage
 
 The following is an example of accessing S3 Data through Presto, using some demo data currently set up in our S3 server.
 
@@ -151,7 +166,7 @@ SELECT json_extract(json, '$.core.user_results.result.legacy.entities') from twi
 INSERT INTO count_posts VALUES ('2023-09', 'actvity', '1');
 ```
 
-## 7) Example of mysql usage
+## 9) Example of mysql usage
 
 After setting up a catalog pointing to a MySQL or PostgreSQL server, you can immediately access all the tables in the database. You can also join tables from an S3 catalog and from databases in MySQL or PostgreSQL servers.
 
