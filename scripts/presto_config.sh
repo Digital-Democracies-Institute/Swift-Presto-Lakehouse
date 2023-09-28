@@ -27,8 +27,7 @@ echo "hive.s3select-pushdown.enabled=false" >> $FILE_PRESTO_CATALOG_HIVES3
 
 # Generate Hive Metastore MYSQL Catalog
 echo "connector.name=mysql" > $FILE_PRESTO_CATALOG_MYSQL
-echo "connection-url="$HIVE_METASTORE_CONNECTION_URL >> $FILE_PRESTO_CATALOG_MYSQL
+echo "connection-url=jdbc:mysql://localhost:3306" >> $FILE_PRESTO_CATALOG_MYSQL
 echo "connection-user="$HIVE_METASTORE_CONNECTION_USERNAME >> $FILE_PRESTO_CATALOG_MYSQL
 echo "connection-password="$HIVE_METASTORE_CONNECTION_PASSWORD >> $FILE_PRESTO_CATALOG_MYSQL
 echo "case-insensitive-name-matching=true" >> $FILE_PRESTO_CATALOG_MYSQL
-

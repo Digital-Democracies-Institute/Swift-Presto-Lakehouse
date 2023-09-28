@@ -16,7 +16,7 @@ export HIVE_METASTORE_CONNECTION_PASSWORD=${HIVE_METASTORE_CONNECTION_PASSWORD}
  
 echo -n "Enter your S3 Endpoint [object-arbutus.cloud.computecanada.ca]:"
 read FS_S3A_ENDPOINT
-export FS_S3A_ENDPOINT=${FS_S3A_ENDPOINT:-object-arbutus.cloud.computercanada.ca}  
+export FS_S3A_ENDPOINT=${FS_S3A_ENDPOINT:-object-arbutus.cloud.computecanada.ca}  
 
 echo -n "Enter your S3 Access Key:"
 read -s FS_S3A_ACCESS_KEY
