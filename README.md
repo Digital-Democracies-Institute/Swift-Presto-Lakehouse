@@ -14,6 +14,8 @@ You need to install and configure s3cmd to retrieve large library files in hadoo
 Because github won't host large files, we need to manually download them into our directories by running the following commands:
 
 ```
+cd Swift-Presto-Lakehouse
+
 s3cmd get s3://ddi-git-large-files/hadoop-3.3.5/share/hadoop/tools/lib/aws-java-sdk-bundle-1.12.316.jar hadoop-3.3.5/share/hadoop/tools/lib/
 
 s3cmd get s3://ddi-git-large-files/hadoop-3.3.5/lib/native/libhdfspp.a hadoop-3.3.5/lib/native/
@@ -23,8 +25,9 @@ mv mysql-connector-j-8.0.33.jar apache-hive-3.1.3-bin/lib
 
 wget https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.279/presto-cli-0.279-executable.jar
 mv presto-cli-0.279-executable.jar presto-server-0.279/bin/presto
-chmod +x presto
+chmod +x presto-server-0.279/bin/presto
 ```
+
 
 ## 3) Install mysql
 
@@ -66,12 +69,19 @@ export PRESTO_HOME=$SWIFT_PRESTO_HOME/presto-server-0.279
 export PATH=$PATH:$PRESTO_HOME/bin
 ```
 
+Make sure the new environment variables take effect by sourcing .bashrc
+```
+source .bashrc
+```
+
+
 ## 5) Configure Presto/Hive/Hadoop with sample S3 and MySQL catalogs
 
 You will be prompt a number of questions to retrieve configuration parameters (e.g. S3 Endpoint, S3 Access Key, S3 Secret Key, etc.). This script will then modify the configuration files in presto-server-0.279, hadoop-3.3.5, and apache-hive-3.1.3-bin.
 
+Run the config.sh script:
 ```
-Run ./scripts/config.sh
+./scripts/config.sh
 ```
 
 ## 6) Start the servers
