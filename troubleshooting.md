@@ -17,12 +17,12 @@ By default, the logging level for HADOOP, HIVE, and PRESTO are set at INFO.
 To troubleshoot, you can change the logging properties in the following files:
 
 
-### Modify $HADOOP_HOME/etc/hadoop/log4j.properties
+#### Modify $HADOOP_HOME/etc/hadoop/log4j.properties
 ```
 hadoop.root.logger=DEBUG,console
 ```
 
-### Modify $HIVE_HOME/conf/hive-log4j2.properties
+#### Modify $HIVE_HOME/conf/hive-log4j2.properties
 ```
 property.hive.log.level = DEBUG
 ```
@@ -49,7 +49,7 @@ logger.ApacheHttp.name=org.apache.http
 logger.ApacheHttp.level = DEBUG
 ```
 
-### Modify $PRESTO_HOME/etc/log.properties
+#### Modify $PRESTO_HOME/etc/log.properties
 ```
 com.facebook.presto=DEBUG
 ```
