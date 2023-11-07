@@ -68,7 +68,12 @@ Loading class `com.mysql.jdbc.Driver'. This is deprecated. The new driver class 
 Hive-on-MR is deprecated in Hive 2 and may not be available in the future versions. Consider using a different execution engine (i.e. spark, tez) or using Hive 1.X releases.
 Hive Session ID = 451e2d53-95e6-4909-9b4e-5fb6f073a6f3
 
-hive> set set fs.s3a.ssl.channel.mode;
+hive>
+```
+
+You can then find out the value of a property by calling "set <property_name>"
+```
+hive> set fs.s3a.ssl.channel.mode;
 fs.s3a.ssl.channel.mode=default_jsse
 
 hive>
@@ -76,7 +81,7 @@ hive>
 
 ## Capture networking packets
 
-You can use tshark to capture networking packets, such as those between HADOOP/HIVE and S3 server as follows:
+You can use tshark to capture networking packets, such as those between the HADOOP/HIVE services and S3 server as follows:
 ```
 # ens3 is the interface
 # -V would show the packet details
