@@ -53,6 +53,11 @@
   </property>
 
   <property>
+    <name>fs.s3a.ssl.channel.mode</name>
+    <value>default_jsse_with_gcm</value>
+  </property>
+
+  <property>
     <name>fs.s3a.path.style.access</name>
     <value>true</value>
   </property>
