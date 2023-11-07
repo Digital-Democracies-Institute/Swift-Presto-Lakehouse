@@ -7,6 +7,9 @@
   - [SSL Handshake](#ssl-handshake)
   
 
+If the HADOOP, HIVE, and PRESTO integration runs into issues, here are some trickes that may help troubleshooting and resolving the underlying causes of the issues.
+
+
 ## Turning on DEBUG Logs
 
 By default, the logging level for HADOOP, HIVE, and PRESTO are set at INFO.
@@ -71,7 +74,7 @@ Hive Session ID = 451e2d53-95e6-4909-9b4e-5fb6f073a6f3
 hive>
 ```
 
-You can then find out the value of a property by calling "set <property_name>"
+You can then find out the value of a property by calling "set <property_name>". E.g.,
 ```
 hive> set fs.s3a.ssl.channel.mode;
 fs.s3a.ssl.channel.mode=default_jsse
