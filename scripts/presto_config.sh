@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-FILE_PRESTO_CATALOG_HIVES3=../presto-server-0.279/etc/catalog/hive_s3.properties
-FILE_PRESTO_CATALOG_MYSQL=../presto-server-0.279/etc/catalog/hive_metastore_mysql.properties
-FILE_PRESTO_NODE=../presto-server-0.279/etc/node.properties
+FILE_PRESTO_CATALOG_HIVES3=${PRESTO_HOME}/etc/catalog/hive_s3.properties
+FILE_PRESTO_CATALOG_MYSQL=${PRESTO_HOME}/etc/catalog/hive_metastore_mysql.properties
+FILE_PRESTO_NODE=${PRESTO_HOME}/etc/node.properties
 
 # Create catalog directory if not exist
-mkdir -p ../presto-server-0.279/etc/catalog
+mkdir -p ${PRESTO_HOME}/etc/catalog
 
 # Rewrite node.properties file
 echo "node.environment=production" > $FILE_PRESTO_NODE

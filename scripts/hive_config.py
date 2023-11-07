@@ -9,13 +9,14 @@ FS_S3A_PATH_STYLE_ACCESS = os.environ.get('FS_S3A_PATH_STYLE_ACCESS')
 FS_S3A_CONNECTION_SSL_ENABLED = os.environ.get('FS_S3A_CONNECTION_SSL_ENABLED')
 
 # Get Hive Metastore Database connection parameters
+HIVE_HOME_DIR = os.environ.get('HIVE_HOME')
 HIVE_METASTORE_CONNECTION_URL = os.environ.get('HIVE_METASTORE_CONNECTION_URL')
 HIVE_METASTORE_CONNECTION_USERNAME = os.environ.get('HIVE_METASTORE_CONNECTION_USERNAME')
 HIVE_METASTORE_CONNECTION_PASSWORD = os.environ.get('HIVE_METASTORE_CONNECTION_PASSWORD')
 
 
-template_file = '../apache-hive-3.1.3-bin/conf/hive-default.xml.template'
-output_file = '../apache-hive-3.1.3-bin/conf/hive-site.xml'
+template_file = HIVE_HOME_DIR + '/conf/hive-default.xml.template'
+output_file = HIVE_HOME_DIR + '/conf/hive-site.xml'
 
 modifications = {
     "property[name='javax.jdo.option.ConnectionURL']/value" : HIVE_METASTORE_CONNECTION_URL,

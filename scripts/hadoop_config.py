@@ -7,11 +7,12 @@ FS_S3A_SECRET_KEY = os.environ.get('FS_S3A_SECRET_KEY')
 FS_S3A_PATH_STYLE_ACCESS = os.environ.get('FS_S3A_PATH_STYLE_ACCESS')
 FS_S3A_CONNECTION_SSL_ENABLED = os.environ.get('FS_S3A_CONNECTION_SSL_ENABLED')
 
+HADOOP_HOME_DIR = os.environ.get('HADOOP_HOME')
 DFS_NAME_DIR = os.environ.get('HADOOP_DFS_NAME_DIR') 
 DFS_DATA_DIR = os.environ.get('HADOOP_DFS_DATA_DIR')
 
-template_file = '../hadoop-3.3.5/etc/hadoop/core-site.xml.template'
-output_file = '../hadoop-3.3.5/etc/hadoop/core-site.xml'
+template_file = HADOOP_HOME_DIR + '/etc/hadoop/core-site.xml.template'
+output_file = HADOOP_HOME_DIR + '/etc/hadoop/core-site.xml'
 
 modifications_coresite = {
     "property[name='fs.s3a.path.style.access']/value": FS_S3A_PATH_STYLE_ACCESS,
@@ -26,8 +27,8 @@ modifications_coresite = {
 modify_xml_config(template_file, output_file, modifications_coresite)
 
 
-template_file = '../hadoop-3.3.5/etc/hadoop/hdfs-site.xml.template'
-output_file = '../hadoop-3.3.5/etc/hadoop/hdfs-site.xml'
+template_file = '../hadoop-3.3.6/etc/hadoop/hdfs-site.xml.template'
+output_file = '../hadoop-3.3.6/etc/hadoop/hdfs-site.xml'
 
 modifications_hdfs = {
     "property[name='dfs.name.dir']/value": DFS_NAME_DIR,
