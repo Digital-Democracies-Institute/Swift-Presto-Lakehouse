@@ -203,3 +203,55 @@ SELECT * FROM hive_metastore_mysql.hcatalog.sequence_table;
 SELECT * FROM ddi_demo.count_posts, hive_metastore_mysql.hcatalog.sequence_table
 WHERE CAST(ddi_demo.count_posts.value as BigInt) = hive_metastore_mysql.hcatalog.sequence_table.next_val;
 ```
+
+
+
+## 10) Importing CSV files into a partitioned table
+
+In Presto/Hive, data can be stored in partitions for optimizing table scanning, and the partitioned data are stored in ORC format (For more on ORC format, see https://cwiki.apache.org/confluence/display/hive/languagemanual+orc). This would optimize the performance for selecting and filtering data from the table.
+
+To convert a text file into ORC format for a partitioned table, the simplest method is to create a table containing the raw data, then use "INSERT/SELECT" statement to import the data into a partitioned table.
+
+E.g., suppose we put the files RC_2023-01-01.json.gz and RC_2023-01-02.json.gz in s3://ddi-techteam-obj-storage/reddit/comments/jan2023/. Then we can create a table of raw data:
+
+```
+CREATE TABLE reddit_comments_jan2023_raw (
+    json VARCHAR
+) WITH (
+   format = 'TEXTFILE',
+   EXTERNAL_LOCATION = 's3a://ddi-techteam-obj-storage/reddit/comments/jan2023/'
+);
+```
+
+Then create a table partitioned by dates, with data columns of relevant fields from the json.
+```
+CREATE TABLE reddit_comments_jan2023 (
+    _json VARCHAR,
+    _body VARCHAR,
+    _author VARCHAR,
+    _subreddit VARCHAR,
+    _date DATE
+) WITH (
+   format = 'TEXTFILE',
+   EXTERNAL_LOCATION = 's3a://ddi-techteam-obj-storage/reddit/comments/jan2023/',
+   partitioned_by = ARRAY['_date']
+);
+```
+
+Then import the data from the raw table into the partitioned table using a INSERT/SELECT statement.
+
+```
+INSERT INTO reddit_comments_jan2023
+SELECT json,
+       CAST(json_extract(json, '$.body') AS VARCHAR),
+       CAST(json_extract(json, '$.author') AS VARCHAR),
+       CAST(json_extract(json, '$.subreddit') AS VARCHAR),
+       DATE(FROM_UNIXTIME(CAST(json_extract(json, '$.created_utc') AS DOUBLE)))
+FROM reddit_comments_jan2023_raw;
+```
+
+We can then delete the raw table
+```
+DROP TABLE reddit_comments_jan2023_raw
+```
+
