@@ -223,7 +223,10 @@ WHERE CAST(ddi_demo.count_posts.value as BigInt) = hive_metastore_mysql.hcatalog
 
 
 
-# Importing JSON files into a partitioned table
+# Storing Data in ORC Format for Presto/Hive/S3 Storage
+In Presto/Hive, the storage of raw data (in JSON files or CSV files) should be converted to storage in ORC format to optimize performance.
+
+## 1. Importing JSON files into a partitioned table
 
 In Presto/Hive, data can be stored in partitions for optimizing table scanning, and the partitioned data are stored in ORC format (For more on ORC format, see https://cwiki.apache.org/confluence/display/hive/languagemanual+orc). This would optimize the performance for selecting and filtering data from the table.
 
@@ -271,4 +274,7 @@ We can then delete the raw table
 ```
 DROP TABLE reddit_comments_jan2023_raw
 ```
+## 2. Importing CSV files into an table with storage in ORC format
+
+The idea is the same as above. We first create a raw table pointing to the CSV file. Then we create a table in ORC format, and move the data from one table to another.
 
