@@ -2,6 +2,14 @@
 
 This is a repository for data warehousing tools.
 
+
+- [Swift-Presto](#swift-presto)
+  - [Getting Started](#getting-started)
+  - [Importing CSV files into a partitioned table](#importing-csv-files-into-a-partitioned-table)
+
+
+# Getting Started
+
 To set up Presto with hive S3,
 
 
@@ -206,7 +214,7 @@ WHERE CAST(ddi_demo.count_posts.value as BigInt) = hive_metastore_mysql.hcatalog
 
 
 
-## 10) Importing CSV files into a partitioned table
+# Importing CSV files into a partitioned table
 
 In Presto/Hive, data can be stored in partitions for optimizing table scanning, and the partitioned data are stored in ORC format (For more on ORC format, see https://cwiki.apache.org/confluence/display/hive/languagemanual+orc). This would optimize the performance for selecting and filtering data from the table.
 
