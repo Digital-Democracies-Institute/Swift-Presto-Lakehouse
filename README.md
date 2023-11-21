@@ -223,7 +223,7 @@ WHERE CAST(ddi_demo.count_posts.value as BigInt) = hive_metastore_mysql.hcatalog
 
 
 
-# Importing CSV files into a partitioned table
+# Importing JSON files into a partitioned table
 
 In Presto/Hive, data can be stored in partitions for optimizing table scanning, and the partitioned data are stored in ORC format (For more on ORC format, see https://cwiki.apache.org/confluence/display/hive/languagemanual+orc). This would optimize the performance for selecting and filtering data from the table.
 
@@ -249,7 +249,7 @@ CREATE TABLE reddit_comments_jan2023 (
     _subreddit VARCHAR,
     _date DATE
 ) WITH (
-   format = 'TEXTFILE',
+   format = 'ORC',
    EXTERNAL_LOCATION = 's3a://ddi-techteam-obj-storage/reddit/comments/jan2023/',
    partitioned_by = ARRAY['_date']
 );
