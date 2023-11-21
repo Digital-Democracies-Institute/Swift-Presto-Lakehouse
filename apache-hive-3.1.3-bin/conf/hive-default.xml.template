@@ -82,6 +82,11 @@
     <value/>
   </property>
 
+  <property>
+    <name>hive.allow-drop-table</name>
+    <value>true</value>
+  </property>
+  
 
   <!-- Hive Execution Parameters -->
   <property>
