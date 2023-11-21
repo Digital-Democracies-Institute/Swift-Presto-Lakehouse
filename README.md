@@ -5,8 +5,9 @@ This is a repository for data warehousing tools.
 
 - [Swift-Presto](#swift-presto)
   - [Getting Started](#getting-started)
-    - [Install s3cmd](#install-s3cmd)
-    - [Retrieve large library files](#retrieve-large-library-files)
+    - [1. Install s3cmd](#1-install-s3cmd)
+    - [2. Retrieve large library files](#2-retrieve-large-library-files)
+    - [3) Install mysql](#3-install-mysql)
   - [Importing CSV files into a partitioned table](#importing-csv-files-into-a-partitioned-table)
 
 
@@ -19,7 +20,7 @@ To set up Presto with hive S3,
 
 You need to install and configure s3cmd to retrieve large library files in hadoop-3.3.5 that github would not host.
 
-### Retrieve large library files
+### 2. Retrieve large library files
 
 Because github won't host large files, we need to manually download them into our directories by running the following commands:
 
