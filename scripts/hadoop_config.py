@@ -27,8 +27,8 @@ modifications_coresite = {
 modify_xml_config(template_file, output_file, modifications_coresite)
 
 
-template_file = '../hadoop-3.3.6/etc/hadoop/hdfs-site.xml.template'
-output_file = '../hadoop-3.3.6/etc/hadoop/hdfs-site.xml'
+template_file = HADOOP_HOME_DIR + '/etc/hadoop/hdfs-site.xml.template'
+output_file = HADOOP_HOME_DIR + '/etc/hadoop/hdfs-site.xml'
 
 modifications_hdfs = {
     "property[name='dfs.name.dir']/value": DFS_NAME_DIR,
