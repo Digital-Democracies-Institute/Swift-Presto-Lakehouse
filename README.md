@@ -15,11 +15,11 @@ This is a repository for data warehousing tools.
 To set up Presto with hive S3,
 
 
-### 1. Install s3cmd
+### 1. Install s3cmd [#install-s3cmd]
 
 You need to install and configure s3cmd to retrieve large library files in hadoop-3.3.5 that github would not host.
 
-### 2. Retrieve large library files
+### 2. Retrieve large library files [#retrieve-large-library-files]
 
 Because github won't host large files, we need to manually download them into our directories by running the following commands:
 
