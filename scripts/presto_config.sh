@@ -24,6 +24,7 @@ echo "hive.non-managed-table-writes-enabled=true" >> $FILE_PRESTO_CATALOG_HIVES3
 echo "hive.respect-table-format=false" >> $FILE_PRESTO_CATALOG_HIVES3
 echo "hive.create-empty-bucket-files=false" >> $FILE_PRESTO_CATALOG_HIVES3
 echo "hive.s3select-pushdown.enabled=false" >> $FILE_PRESTO_CATALOG_HIVES3
+echo "hive.allow-drop-table=true" >> $FILE_PRESTO_CATALOG_HIVES3
 
 # Generate Hive Metastore MYSQL Catalog
 echo "connector.name=mysql" > $FILE_PRESTO_CATALOG_MYSQL
