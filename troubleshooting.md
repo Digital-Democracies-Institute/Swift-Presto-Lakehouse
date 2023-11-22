@@ -5,6 +5,7 @@
   - [Check the values of a property](#check-the-values-of-a-property)
   - [Capture networking packets](#capture-networking-packets)
   - [SSL Handshake](#ssl-handshake)
+  - [Issue with dropping table in Presto](#issue-with-dropping-table-in-presto)
   
 
 If the HADOOP, HIVE, and PRESTO integration runs into issues, here are some trickes that may help troubleshooting and resolving the underlying causes of the issues.
