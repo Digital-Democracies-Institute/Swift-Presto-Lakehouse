@@ -15,6 +15,8 @@ This is a repository for data warehousing tools.
     - [8. Example of S3 Usage](#8-example-of-s3-usage)
     - [9. Example of mysql usage](#9-example-of-mysql-usage)
   - [Importing CSV files into a partitioned table](#importing-csv-files-into-a-partitioned-table)
+    - [1. Importing JSON files into a partitioned table] (#1-importing-json-files-into-a-partitioned-table)
+    - [2. Importing CSV files into an table with storage in ORC format](#2-importing-csv-files-into-an-table-with-storage-in-orc-format)
 
 
 ## Getting Started
