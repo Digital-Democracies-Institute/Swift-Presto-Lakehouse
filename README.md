@@ -28,6 +28,15 @@ To set up Presto with hive S3,
 
 You need to install and configure s3cmd to retrieve large library files in hadoop-3.3.5 that github would not host.
 
+```
+sudo-apt install s3cmd
+```
+
+```
+s3cmd --configure
+```
+
+
 ### 2. Retrieve large library files
 
 Because github won't host large files, we need to manually download them into our directories by running the following commands:
@@ -48,7 +57,12 @@ chmod +x presto-server-0.279/bin/presto
 ```
 
 
-### 3. Install mysql
+### 3. Install java and mysql
+
+Install java 8
+```
+sudo apt install openjdk-8-jre-headless
+```
 
 You need to install MySQL for the hive metastore database. (The default is debian database but it is not as stable).
 
@@ -56,8 +70,11 @@ You need to install MySQL for the hive metastore database. (The default is debia
 
 - Add the following environment variables in ~/.bashrc
 - Replace [Path to Swift-Presto directory] with the directory where you clone the github repository.
-- Replace [Installed Path to Java], e.g., /usr/lib/jvm/java-8-openjdk-amd64. You can find out your the path by running 'which java' on the command prompt.
-
+- Replace [Installed Path to Java], e.g., /usr/lib/jvm/java-8-openjdk-amd64/jre. You can find JAVA_HOME as follows:
+```
+java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' 
+```
+  
 ```
 # Environment variables for JAVA
 export JAVA_HOME=[installed path for Java]
