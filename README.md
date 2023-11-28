@@ -69,11 +69,11 @@ You need to install MySQL for the hive metastore database. (The default is debia
 ### 4. Set up your environment variables
 
 - Add the following environment variables in ~/.bashrc
-- Replace [Path to Swift-Presto directory] with the directory where you clone the github repository.
 - Replace [Installed Path to Java], e.g., /usr/lib/jvm/java-8-openjdk-amd64/jre. You can find JAVA_HOME as follows:
 ```
 java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' 
 ```
+- Replace [Path to Swift-Presto directory] with the directory where you clone the github repository.
   
 ```
 # Environment variables for JAVA
