@@ -70,7 +70,7 @@ You also need to install MySQL for the hive metastore database. (The default is 
 sudo apt install mysql-server-8.0
 ```
 
-You can refer to this link[https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04] for instructions on how to configure mysql
+You can refer to this [link](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04) for instructions on how to configure mysql
 
 ### 4. Set up your environment variables
 
