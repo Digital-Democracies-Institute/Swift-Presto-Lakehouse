@@ -64,7 +64,7 @@ Install java 8
 sudo apt install openjdk-8-jre-headless
 ```
 
-You need to install MySQL for the hive metastore database. (The default is debian database but it is not as stable).
+You also need to install MySQL for the hive metastore database. (The default is debian database but it is not as stable).
 
 ### 4. Set up your environment variables
 
