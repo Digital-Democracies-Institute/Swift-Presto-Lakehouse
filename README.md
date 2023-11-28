@@ -66,6 +66,12 @@ sudo apt install openjdk-8-jre-headless
 
 You also need to install MySQL for the hive metastore database. (The default is debian database but it is not as stable).
 
+```
+sudo apt install mysql-server-8.0
+```
+
+You can refer to this link[https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04] for instructions on how to configure mysql
+
 ### 4. Set up your environment variables
 
 - Add the following environment variables in ~/.bashrc
