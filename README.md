@@ -11,11 +11,12 @@ This is a repository for data warehousing tools.
     - [4. Set up your environment variables](#4-set-up-your-environment-variables)
     - [5. Configure Presto/Hive/Hadoop with sample S3 and MySQL catalogs](#5-configure-prestohivehadoop-with-sample-s3-and-mysql-catalogs)
     - [6. Register public key](#6-register-public-key)
-    - [7. Initialize database schema for Hive Metastore](#7-initialize-database-schema-for-hive-metastore)
-    - [8. Start the servers](#8-start-the-servers)
-    - [9. Setting up catalogs in Presto](#9-setting-up-catalogs-in-presto)
-    - [10. Example of S3 Usage](#10-example-of-s3-usage)
-    - [11. Example of mysql usage](#11-example-of-mysql-usage)
+    - [7. Format HADOOP filesystem](#7-format-hadoop-filesystem)
+    - [8. Initialize database schema for Hive Metastore](#8-initialize-database-schema-for-hive-metastore)
+    - [9. Start the servers](#9-start-the-servers)
+    - [10. Setting up catalogs in Presto](#10-setting-up-catalogs-in-presto)
+    - [11. Example of S3 Usage](#11-example-of-s3-usage)
+    - [12. Example of mysql usage](#12-example-of-mysql-usage)
   - [Importing CSV files into a partitioned table](#importing-csv-files-into-a-partitioned-table)
     - [1. Importing JSON files into a partitioned table](#1-importing-json-files-into-a-partitioned-table)
     - [2. Importing CSV files into an table with storage in ORC format](#2-importing-csv-files-into-an-table-with-storage-in-orc-format)
@@ -151,18 +152,23 @@ For machines to talk to each other, you need to set up passwordless ssh by addin
 
 ```
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
-
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
 ```
 
-### 7. Initialize database schema for Hive Metastore
+### 7. Format HADOOP filesystem
+```
+hadoop namenode -format
+```
+
+### 8. Initialize database schema for Hive Metastore
 
 Run the following to initialize the MySQL database schema for Hive Metastore service.
 ```
 schematool --dbType mysql --initSchema
 ```
 
-### 8. Start the servers
+### 9. Start the servers
 
 ```
 # start the Hadoop Server
@@ -204,11 +210,11 @@ launcher stop
 To stop the hive metastore service, you need to find the PID and kill the process.
 
 
-### 9. Setting up catalogs in Presto
+### 10. Setting up catalogs in Presto
 
 - You can set up different data sources my creating properties files in presto-server-0.279/etc/catalog. The directory contains a couple of sample connectors, one to S3 and one to mysql. For how to set up different connectors, refer to https://prestodb.io/docs/current/connector.html.
 
-### 10. Example of S3 Usage
+### 11. Example of S3 Usage
 
 The following is an example of accessing S3 Data through Presto, using some demo data currently set up in our S3 server.
 
@@ -271,7 +277,7 @@ SELECT json_extract(json, '$.core.user_results.result.legacy.entities') from twi
 INSERT INTO count_posts VALUES ('2023-09', 'actvity', '1');
 ```
 
-### 11. Example of mysql usage
+### 12. Example of mysql usage
 
 After setting up a catalog pointing to a MySQL or PostgreSQL server, you can immediately access all the tables in the database. You can also join tables from an S3 catalog and from databases in MySQL or PostgreSQL servers.
 
