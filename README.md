@@ -189,12 +189,12 @@ presto --server localhost:8080 --catalog hive_s3 --schema default --debug
 Note that if your server has already used the port 8080 for other services, you will have to change the default ports in $PRESTO_HOME/etc/config.properties
 
 ```
-http-server.http.port=8090
-discovery.uri=http://localhost:8090
+http-server.http.port=8097
+discovery.uri=http://localhost:8097
 ```
 Then your presto client would have to point to the correct port
 ```
-presto --server localhost:8090 --catalog hive_s3
+presto --server localhost:8097 --catalog hive_s3
 ```
 
 To stop the servers
