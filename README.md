@@ -85,15 +85,15 @@ For details, pls refer to this [link](https://www.digitalocean.com/community/tut
 ### 4. Set up your environment variables
 
 - Add the following environment variables in ~/.bashrc
-- Replace [Installed Path to Java], e.g., /usr/lib/jvm/java-8-openjdk-amd64/jre. You can find JAVA_HOME as follows:
+- Replace [Path for Java Home], e.g., /usr/lib/jvm/java-8-openjdk-amd64/jre. You can find JAVA_HOME as follows:
 ```
 java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home' 
 ```
-- Replace [Path to Swift-Presto directory] with the directory where you clone the github repository.
+- Replace [Path to Swift-Presto-Lakehouse directory] with the directory where you clone the github repository.
   
 ```
 # Environment variables for Swift-Presto
-export SWIFT_PRESTO_HOME=[path of the git repository Swift-Presto-Lakehouse]
+export SWIFT_PRESTO_HOME=[Path to Swift-Presto-Lakehouse directory]
 
 # Environment variables for Hadoop
 export HADOOP_HOME=$SWIFT_PRESTO_HOME/hadoop-3.3.5
@@ -117,7 +117,7 @@ export PRESTO_HOME=$SWIFT_PRESTO_HOME/presto-server-0.279
 export PATH=$PATH:$PRESTO_HOME/bin
 
 # Set JAVA_HOME
-export JAVA_HOME=[path for Java Home]
+export JAVA_HOME=[Path for Java Home]
 export PATH=$JAVA_HOME/bin:$PATH
 
 export HIVE_AUX_JARS_PATH=$HADOOP_HOME/share/hadoop/tools/lib/
