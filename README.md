@@ -66,11 +66,21 @@ sudo apt install openjdk-8-jre-headless
 
 You also need to install MySQL for the hive metastore database. (The default is debian database but it is not as stable).
 
+You can install, run the service, and add a new user as follows:
 ```
 sudo apt install mysql-server-8.0
+sudo systemctl start mysql.service
 ```
 
-You can refer to this [link](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04) for instructions on how to configure mysql
+```
+sudo mysql
+
+mysql> CREATE USER 'username' IDENTIFIED WITH authentication_plugin BY 'password';
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'username' WITH GRANT OPTION;
+```
+For details, pls refer to this [link](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04) for instructions on how to configure mysql.
+
 
 ### 4. Set up your environment variables
 
