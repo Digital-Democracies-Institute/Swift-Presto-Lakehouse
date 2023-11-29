@@ -66,6 +66,7 @@ sudo apt install openjdk-8-jre-headless
 Install python 3.8 (if it hasn't been installed already)
 ```
 sudo apt install python3.8
+sudo apt install python-is-python3
 ```
 
 You also need to install MySQL for the hive metastore database. (The default is debian database but it is not as stable).
