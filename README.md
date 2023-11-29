@@ -7,7 +7,7 @@ This is a repository for data warehousing tools.
   - [Getting Started](#getting-started)
     - [1. Install s3cmd](#1-install-s3cmd)
     - [2. Retrieve large library files](#2-retrieve-large-library-files)
-    - [3. Install java and mysql](#3-install-java-and-mysql)
+    - [3. Install java, python, and mysql](#3-install-java-python-and-mysql)
     - [4. Set up your environment variables](#4-set-up-your-environment-variables)
     - [5. Configure Presto/Hive/Hadoop with sample S3 and MySQL catalogs](#5-configure-prestohivehadoop-with-sample-s3-and-mysql-catalogs)
     - [6. Start the servers](#6-start-the-servers)
@@ -57,11 +57,15 @@ chmod +x presto-server-0.279/bin/presto
 ```
 
 
-### 3. Install java and mysql
+### 3. Install java, python, and mysql
 
-Install java 8
+Install java 8 (if it hasn't been installed already)
 ```
 sudo apt install openjdk-8-jre-headless
+```
+Install python 3.8 (if it hasn't been installed already)
+```
+sudo apt install python3.8
 ```
 
 You also need to install MySQL for the hive metastore database. (The default is debian database but it is not as stable).
