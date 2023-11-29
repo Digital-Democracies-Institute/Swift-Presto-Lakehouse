@@ -157,6 +157,7 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 ### 7. Initialize database schema for Hive Metastore
 
+Run the following to initialize the MySQL database schema for Hive Metastore service.
 ```
 schematool --dbType mysql --initSchema
 ```
