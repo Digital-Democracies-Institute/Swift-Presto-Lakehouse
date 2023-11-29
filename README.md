@@ -186,7 +186,10 @@ Note that if your server has already used the port 8080 for other services, you 
 http-server.http.port=8090
 discovery.uri=http://localhost:8090
 ```
-
+Then your presto client would have to point to the correct port
+```
+presto --server localhost:8090 --catalog hive_s3
+```
 
 To stop the servers
 
