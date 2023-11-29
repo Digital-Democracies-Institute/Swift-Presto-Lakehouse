@@ -10,10 +10,11 @@ This is a repository for data warehousing tools.
     - [3. Install java, python, and mysql](#3-install-java-python-and-mysql)
     - [4. Set up your environment variables](#4-set-up-your-environment-variables)
     - [5. Configure Presto/Hive/Hadoop with sample S3 and MySQL catalogs](#5-configure-prestohivehadoop-with-sample-s3-and-mysql-catalogs)
-    - [6. Start the servers](#6-start-the-servers)
-    - [7. Setting up catalogs in Presto](#7-setting-up-catalogs-in-presto)
-    - [8. Example of S3 Usage](#8-example-of-s3-usage)
-    - [9. Example of mysql usage](#9-example-of-mysql-usage)
+    - [6. Register public key](#6-register-public-key)
+    - [7. Start the servers](#7-start-the-servers)
+    - [8. Setting up catalogs in Presto](#8-setting-up-catalogs-in-presto)
+    - [9. Example of S3 Usage](#9-example-of-s3-usage)
+    - [10. Example of mysql usage](#10-example-of-mysql-usage)
   - [Importing CSV files into a partitioned table](#importing-csv-files-into-a-partitioned-table)
     - [1. Importing JSON files into a partitioned table](#1-importing-json-files-into-a-partitioned-table)
     - [2. Importing CSV files into an table with storage in ORC format](#2-importing-csv-files-into-an-table-with-storage-in-orc-format)
@@ -144,7 +145,16 @@ Run the config.sh script:
 ./scripts/config.sh
 ```
 
-### 6. Start the servers
+### 6. Register public key
+For machines to talk to each other, you need to set up passwordless ssh by adding user machine's public key to server machines ~/.ssh/authorized_keys file.
+
+```
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+```
+
+### 7. Start the servers
 
 ```
 # start the Hadoop Server
@@ -176,11 +186,11 @@ launcher stop
 To stop the hive metastore service, you need to find the PID and kill the process.
 
 
-### 7. Setting up catalogs in Presto
+### 8. Setting up catalogs in Presto
 
 - You can set up different data sources my creating properties files in presto-server-0.279/etc/catalog. The directory contains a couple of sample connectors, one to S3 and one to mysql. For how to set up different connectors, refer to https://prestodb.io/docs/current/connector.html.
 
-### 8. Example of S3 Usage
+### 9. Example of S3 Usage
 
 The following is an example of accessing S3 Data through Presto, using some demo data currently set up in our S3 server.
 
@@ -243,7 +253,7 @@ SELECT json_extract(json, '$.core.user_results.result.legacy.entities') from twi
 INSERT INTO count_posts VALUES ('2023-09', 'actvity', '1');
 ```
 
-### 9. Example of mysql usage
+### 10. Example of mysql usage
 
 After setting up a catalog pointing to a MySQL or PostgreSQL server, you can immediately access all the tables in the database. You can also join tables from an S3 catalog and from databases in MySQL or PostgreSQL servers.
 
