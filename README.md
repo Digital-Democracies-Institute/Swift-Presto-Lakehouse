@@ -151,7 +151,7 @@ Run the config.sh script:
 start-all.sh
 
 # start the Hive Metastore Service
-hive --service metastore &
+nohup hive --service metastore &
 
 # start the presto server
 launcher start
