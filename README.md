@@ -92,12 +92,8 @@ java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home'
 - Replace [Path to Swift-Presto directory] with the directory where you clone the github repository.
   
 ```
-# Environment variables for JAVA
-export JAVA_HOME=[installed path for Java]
-export PATH=$JAVA_HOME/bin:$PATH
-
 # Environment variables for Swift-Presto
-export SWIFT_PRESTO_HOME=[Path to Swift-Presto directory]
+export SWIFT_PRESTO_HOME=[path of the git repository Swift-Presto-Lakehouse]
 
 # Environment variables for Hadoop
 export HADOOP_HOME=$SWIFT_PRESTO_HOME/hadoop-3.3.5
@@ -119,6 +115,13 @@ export HIVE_AUX_JARS_PATH=$HADOOP_HOME/share/hadoop/tools/lib/
 # Environment variables for Presto
 export PRESTO_HOME=$SWIFT_PRESTO_HOME/presto-server-0.279
 export PATH=$PATH:$PRESTO_HOME/bin
+
+# Set JAVA_HOME
+export JAVA_HOME=[path for Java Home]
+export PATH=$JAVA_HOME/bin:$PATH
+
+export HIVE_AUX_JARS_PATH=$HADOOP_HOME/share/hadoop/tools/lib/
+export HADOOP_CLASSPATH=$HADOOP_CLASSPATH:$HADOOP_HOME/share/hadoop/tools/lib/
 ```
 
 Make sure the new environment variables take effect by sourcing .bashrc
