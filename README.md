@@ -64,7 +64,7 @@ chmod +x presto-server-0.279/bin/presto
 
 Install java 8 (if it hasn't been installed already)
 ```
-sudo apt install openjdk-8-jre-headless
+sudo apt install openjdk-8-jdk-headless
 ```
 Install python 3.8 (if it hasn't been installed already)
 ```
@@ -179,7 +179,23 @@ nohup hive --service metastore &
 
 # start the presto server
 launcher start
+```
 
+if you run jps, you should see
+```
+1786107 Jps
+1783550 NameNode
+1785181 PrestoServer
+1784034 SecondaryNameNode
+1784304 ResourceManager
+1784487 NodeManager
+1784965 RunJar
+1783733 DataNode
+```
+"RunJar" is the java process for hive metastore service, PrestoServer is the java process for presto server, the rest are HADOOP processes.
+
+You can then run Presto CLI to connect to the Presto Server
+```
 # run the presto cli
 presto --server localhost:8080 --catalog hive_s3
 
