@@ -180,6 +180,8 @@ presto --server localhost:8080 --catalog hive_s3
 # to run the cli with the 'defaut' schema in debug mode
 presto --server localhost:8080 --catalog hive_s3 --schema default --debug
 ```
+Note that if your server has already used the port 8080 for other services, you will have to change the default http-server.http.port in $PRESTO_HOME/etc/config.properties from 8080 to something else.
+
 
 To stop the servers
 
