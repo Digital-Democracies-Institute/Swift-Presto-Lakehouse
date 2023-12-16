@@ -4,3 +4,4 @@ Release Notes - Swift-Presto-Lakehouse
 * Add initial README file for installation guide and sample SQL's on PRESTO
 * Add sample PRESTO catalogs for connecting to S3 and mysql metastore DB
 * Add scripts for configuring HADOOP, HIVE, and PRESTO.
+* Add scripts for synchronizing with 4cat
