@@ -5,6 +5,7 @@
   - [Check the values of a property](#check-the-values-of-a-property)
   - [Capture networking packets](#capture-networking-packets)
   - [SSL Handshake](#ssl-handshake)
+  - [Issue with dropping table in Presto](#issue-with-dropping-table-in-presto)
   
 
 If the HADOOP, HIVE, and PRESTO integration runs into issues, here are some trickes that may help troubleshooting and resolving the underlying causes of the issues.
@@ -104,3 +105,13 @@ object-arbutus.computecanada.ca.
 
 It is a bit of a mystery when this removal would be triggered. In order to force HADOOP not
 to remove these cipher suites, we need to set fs.s3a.ssl.channel.mode=default_jsse_with_gcm.
+
+## Issue with dropping table in Presto
+In presto, the default is that dropping table is not permitted. To enable the option, you need to configure hive:
+```
+hive.allow-drop-table=true
+```
+This should be done in $HIVE_HOME/conf/hive-site.xml, and $PRESTO_HOME/etc/catalog/your_hive_catalog_file.properties (thus follow the example in hive_s3.properties)
+
+
+
