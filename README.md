@@ -144,6 +144,10 @@ You will be prompt a number of questions to retrieve configuration parameters (e
 
 Run the config.sh script:
 ```
+cd Swift-Presto-Lakehouse
+```
+
+```
 ./scripts/config.sh
 ```
 
