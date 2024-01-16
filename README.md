@@ -32,7 +32,7 @@ To set up Presto with hive S3,
 You need to install and configure s3cmd to retrieve large library files in hadoop-3.3.5 that github would not host.
 
 ```
-sudo-apt install s3cmd
+sudo apt install s3cmd
 ```
 
 ```
