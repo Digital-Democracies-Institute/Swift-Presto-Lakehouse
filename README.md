@@ -46,14 +46,22 @@ Because github won't host large files, we need to manually download them into ou
 
 ```
 cd Swift-Presto-Lakehouse
+```
 
+```
 s3cmd get s3://ddi-git-large-files/hadoop-3.3.5/share/hadoop/tools/lib/aws-java-sdk-bundle-1.12.316.jar hadoop-3.3.5/share/hadoop/tools/lib/
+```
 
+```
 s3cmd get s3://ddi-git-large-files/hadoop-3.3.5/lib/native/libhdfspp.a hadoop-3.3.5/lib/native/
+```
 
+```
 wget https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar
 mv mysql-connector-j-8.0.33.jar apache-hive-3.1.3-bin/lib
+```
 
+```
 wget https://repo1.maven.org/maven2/com/facebook/presto/presto-cli/0.279/presto-cli-0.279-executable.jar
 mv presto-cli-0.279-executable.jar presto-server-0.279/bin/presto
 chmod +x presto-server-0.279/bin/presto
