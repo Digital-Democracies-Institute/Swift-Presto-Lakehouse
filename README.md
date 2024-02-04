@@ -91,7 +91,7 @@ sudo systemctl start mysql.service
 ```
 sudo mysql
 
-mysql> CREATE USER 'username' IDENTIFIED WITH authentication_plugin BY 'password';
+mysql> CREATE USER 'username' IDENTIFIED BY 'password';
 
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'username' WITH GRANT OPTION;
 ```
