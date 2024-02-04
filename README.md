@@ -95,6 +95,8 @@ mysql> CREATE USER 'username' IDENTIFIED BY 'password';
 
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'username' WITH GRANT OPTION;
 ```
+(replace 'username' 'password' with your own username and password for the mysql server)
+
 For details, pls refer to this [link](https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-20-04) for instructions on how to configure mysql.
 
 
