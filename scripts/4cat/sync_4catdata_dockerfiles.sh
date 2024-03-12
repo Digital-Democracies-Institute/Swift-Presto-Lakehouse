@@ -37,7 +37,7 @@ for ext in "${extensions[@]}"; do
 	    docker cp "$container_name":"$docker_directory/$container_directory/$file_path" "$destfilepath_tmp"
 
 	    # remove carriage returns
-	    awk 'NR%2-1{gsub(/\r?\n/, FS)} NR>1{printf RS}1' RS=\" ORS= $destfilepath_tmp > "$destfilepath"
+	    awk 'NR%2-1{gsub(/\r?\n|\r/, FS)} NR>1{printf RS}1' RS=\" ORS= $destfilepath_tmp > "$destfilepath"
 
 	    # remove 1st line
 	    sed -i '1d' "$destfilepath"
